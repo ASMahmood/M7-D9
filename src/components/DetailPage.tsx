@@ -118,10 +118,13 @@ class DetailPage extends Component<RouteComponentProps, State> {
                 <h4>By {this.state.info.artist.name}</h4>
                 <h5>
                   Ranked: {this.state.info.rank} • Released:{" "}
-                  {this.state.info.release_date}{" "}
+                  {this.state.info.release_date} • {this.state.info.duration}s{" "}
                   {this.state.info.explicit_lyrics && "• EXPLICIT"}
                 </h5>
               </Col>
+            </Row>
+            <Row>
+              <Col xs={12}></Col>
             </Row>
           </Col>
           <Col xs={4} id="artistCol">

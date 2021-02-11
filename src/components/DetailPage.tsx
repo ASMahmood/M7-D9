@@ -44,6 +44,14 @@ class DetailPage extends Component<RouteComponentProps, State> {
     this.fetchAlbum();
   };
 
+  componentDidUpdate = async (prevProps: object) => {
+    if (prevProps !== this.props) {
+      await this.fetchSong();
+      this.fetchTopSongs();
+      this.fetchAlbum();
+    }
+  };
+
   fetchSong = async () => {
     try {
       let params: { id?: number } = this.props.match.params;
@@ -146,6 +154,9 @@ class DetailPage extends Component<RouteComponentProps, State> {
                     this.state.albumTracks.map((track, index) => (
                       <ListGroup.Item
                         key={index}
+                        onClick={() =>
+                          this.props.history.push("/song/" + track.id)
+                        }
                         className="trackListing d-flex justify-content-between"
                       >
                         <span className="trackName">{track.title}</span>

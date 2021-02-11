@@ -7,12 +7,13 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
-class NavBar extends Component {
+class NavBar extends Component<RouteComponentProps> {
   render() {
     return (
       <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="#home">
+        <Navbar.Brand onClick={() => this.props.history.push("/")}>
           <img
             src="https://res.cloudinary.com/dhmw620tl/image/upload/v1613046881/benchmark3/dance_tzx91z.gif"
             width="30"
@@ -37,7 +38,7 @@ class NavBar extends Component {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand onClick={() => this.props.history.push("/")}>
           <img
             src="https://res.cloudinary.com/dhmw620tl/image/upload/v1611750739/benchmark3/o9epvu8cffi20kop46nj.gif"
             width="30"
@@ -51,4 +52,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

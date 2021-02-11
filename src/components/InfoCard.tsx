@@ -7,7 +7,10 @@ type infoProps = RouteComponentProps & infoCardProps;
 
 function InfoCard(props: infoProps) {
   return (
-    <Card className="infoCard">
+    <Card
+      className="infoCard"
+      onClick={() => props.history.push("/song/" + props.info.id)}
+    >
       <Card.Img variant="top" src={props.info.album.cover_xl} />
       <Card.Body>
         <Card.Title>{props.info.title}</Card.Title>

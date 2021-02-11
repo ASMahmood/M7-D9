@@ -28,4 +28,9 @@ body {
 
 .infoCard .card-img-top {
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.navbar-brand {
+  cursor: pointer;
 }

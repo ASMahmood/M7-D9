@@ -3,5 +3,14 @@ export interface searchBarInterface {
 }
 
 export interface infoCardProps {
-  info: any;
+  info: {
+    album: {
+      cover_xl: string;
+    };
+    title: string;
+    artist: {
+      name: string;
+    };
+    id: number;
+  };
 }

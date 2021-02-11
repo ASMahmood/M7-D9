@@ -34,3 +34,35 @@ body {
 .navbar-brand {
   cursor: pointer;
 }
+
+#detail-page {
+  background-color: whitesmoke;
+  border: 1px solid #343a40;
+  border-radius: 40px;
+  width: 100%;
+  height: 80vh;
+}
+
+#artistCol {
+  margin-top: 1rem;
+}
+
+#mainCol {
+  margin-top: 1rem;
+  padding-left: 2rem;
+}
+
+.albumImg {
+  width: 200px;
+  object-fit: cover;
+}
+
+#tracklistRight {
+  overflow-y: scroll;
+  height: 470px;
+}
+
+.trackName,
+.trackLength {
+  font-size: 12px;
+}

@@ -22,7 +22,7 @@ class SearchBar extends Component<Props, State> {
 
   render() {
     return (
-      <Form onSubmit={(e) => this.handleSubmit(e)} className="w-75">
+      <Form onSubmit={this.handleSubmit} className="w-75">
         <Form.Group className="d-flex">
           <Form.Control
             type="text"

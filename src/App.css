@@ -62,6 +62,10 @@ body {
   height: 470px;
 }
 
+.trackListing {
+  cursor: pointer;
+}
+
 .trackName,
 .trackLength {
   font-size: 12px;

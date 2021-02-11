@@ -32,6 +32,7 @@ class DetailPage extends Component<RouteComponentProps, State> {
       {
         title: "",
         duration: 0,
+        id: 0,
         album: {
           title: "",
         },
@@ -140,16 +141,20 @@ class DetailPage extends Component<RouteComponentProps, State> {
             </Row>
             <Row className="mt-5">
               <Col xs={12}>
-                <h6>Other tracks by this artist: </h6>
+                <h6>Top tracks by this artist: </h6>
                 <ListGroup variant="flush">
                   {this.state.topTracks.length > 0 &&
                     this.state.topTracks.map((track, index) => (
                       <ListGroup.Item
                         key={index}
+                        onClick={() =>
+                          this.props.history.push("/song/" + track.id)
+                        }
                         className="trackListing d-flex justify-content-between"
                       >
                         <span className="trackName">
-                          {track.title} - {track.album.title}
+                          {" "}
+                          {index + 1}. {track.title} - {track.album.title}
                         </span>
                         <span className="trackLength">{track.duration}</span>
                       </ListGroup.Item>

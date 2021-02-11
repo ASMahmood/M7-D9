@@ -3,7 +3,24 @@ import { RouteComponentProps } from "react-router-dom";
 import { Container, Row, Col, ListGroup } from "react-bootstrap";
 
 interface State {
-  info: object;
+  info: {
+    title: string;
+    release_date: string;
+    rank: number;
+    explicit_lyrics: boolean;
+    duration: number;
+    artist: {
+      name: string;
+      picture_xl: string;
+      id: number;
+    };
+    album: {
+      cover_xl: string;
+      title: string;
+      release_date: string;
+      id: number;
+    };
+  };
   topTracks: object[];
   albumTracks: object[];
 }
@@ -11,20 +28,20 @@ interface State {
 class DetailPage extends Component<RouteComponentProps, State> {
   state = {
     info: {
-      title: "string",
-      release_date: "string",
+      title: "",
+      release_date: "",
       rank: 0,
       explicit_lyrics: false,
       duration: 0,
       artist: {
-        name: "string",
-        picture_xl: "string",
+        name: "",
+        picture_xl: "",
         id: 0,
       },
       album: {
-        cover_xl: "string",
-        title: "string",
-        release_date: "string",
+        cover_xl: "",
+        title: "",
+        release_date: "",
         id: 0,
       },
     },

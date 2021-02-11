@@ -28,7 +28,15 @@ class DetailPage extends Component<RouteComponentProps, State> {
         id: 0,
       },
     },
-    topTracks: [],
+    topTracks: [
+      {
+        title: "",
+        duration: 0,
+        album: {
+          title: "",
+        },
+      },
+    ],
     albumTracks: [
       {
         title: "",
@@ -68,7 +76,6 @@ class DetailPage extends Component<RouteComponentProps, State> {
       let parsedResp = await response.json();
 
       this.setState({ info: parsedResp });
-      console.log(parsedResp);
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +84,7 @@ class DetailPage extends Component<RouteComponentProps, State> {
   fetchTopSongs = async () => {
     try {
       let response = await fetch(
-        `https://deezerdevs-deezer.p.rapidapi.com/artist/${this.state.info.artist.id}/top?limit=10`,
+        `https://deezerdevs-deezer.p.rapidapi.com/artist/${this.state.info.artist.id}/top?limit=12`,
         {
           headers: {
             "x-rapidapi-key":
@@ -131,8 +138,24 @@ class DetailPage extends Component<RouteComponentProps, State> {
                 </h5>
               </Col>
             </Row>
-            <Row>
-              <Col xs={12}></Col>
+            <Row className="mt-5">
+              <Col xs={12}>
+                <h6>Other tracks by this artist: </h6>
+                <ListGroup variant="flush">
+                  {this.state.topTracks.length > 0 &&
+                    this.state.topTracks.map((track, index) => (
+                      <ListGroup.Item
+                        key={index}
+                        className="trackListing d-flex justify-content-between"
+                      >
+                        <span className="trackName">
+                          {track.title} - {track.album.title}
+                        </span>
+                        <span className="trackLength">{track.duration}</span>
+                      </ListGroup.Item>
+                    ))}
+                </ListGroup>
+              </Col>
             </Row>
           </Col>
           <Col xs={4} id="artistCol">
